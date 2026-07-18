@@ -51,6 +51,14 @@
             "kind": { "const": "token" },
             "field": { "$ref": "#/definitions/authField" }
           }
+        },
+        {
+          "type": "object",
+          "required": ["kind"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "oauth-mcp" }
+          }
         }
       ]
     },
@@ -73,14 +81,27 @@
         "caldav": { "$ref": "#/definitions/davEndpoint" },
         "carddav": { "$ref": "#/definitions/davEndpoint" },
         "mcp": {
-          "type": "object",
-          "required": ["command", "args", "envKey"],
-          "additionalProperties": false,
-          "properties": {
-            "command": { "enum": ["npx", "uvx"] },
-            "args": { "type": "array", "items": { "type": "string" } },
-            "envKey": { "type": "string", "minLength": 1 }
-          }
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["command", "args", "envKey"],
+              "additionalProperties": false,
+              "properties": {
+                "command": { "enum": ["npx", "uvx"] },
+                "args": { "type": "array", "items": { "type": "string" } },
+                "envKey": { "type": "string", "minLength": 1 }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["url"],
+              "additionalProperties": false,
+              "properties": {
+                "url": { "type": "string", "pattern": "^https://" },
+                "transport": { "enum": ["http", "sse"] }
+              }
+            }
+          ]
         }
       }
     }
