@@ -9,8 +9,8 @@ here ships a connector to every user, no app update involved.
 
 A connector here is a **manifest — data, never code**. The app validates it
 and builds the integration from its own built-in protocol engines
-(IMAP/SMTP, WebDAV, CalDAV/CardDAV, local MCP). Installing a manifest cannot
-execute JavaScript from this repo.
+(IMAP/SMTP, WebDAV, CalDAV/CardDAV, local MCP, remote MCP with OAuth 2.1).
+Installing a manifest cannot execute JavaScript from this repo.
 
 ```
 index.json                     ← the catalog the app lists
@@ -29,7 +29,8 @@ The app fetches `raw.githubusercontent.com/iaa2005/monet-connectors/main/…`.
    `yandex-contacts`, `telegram`, `telegram-bot`, `github`, `notion`,
    `slack`, `linear`, `sentry`).
 2. **Create `connectors/<id>/manifest.json`** following `schema.json`
-   (schema version `1`). See `connectors/mailru/` for a worked example.
+   (schema version `1`). See `connectors/mailru/` for a password example,
+   `connectors/dropbox/` for a remote OAuth MCP example.
 3. **Verify every endpoint against the real server before submitting.**
    Never copy hosts from a blog post. Prove them:
    - mail: `openssl s_client -connect imap.example.com:993` (TLS must
@@ -38,8 +39,11 @@ The app fetches `raw.githubusercontent.com/iaa2005/monet-connectors/main/…`.
      — a `401` with a `WWW-Authenticate` header proves the protocol lives
      there (note: a `Basic realm` challenge alone does NOT prove that a
      password will be accepted — some providers advertise it and refuse);
-   - mcp: `npm view <package> name version` — the package must exist, be the
-     provider's official server, and run with `npx`/`uvx`.
+   - mcp (local): `npm view <package> name version` — the package must exist,
+     be the provider's official server, and run with `npx`/`uvx`;
+   - mcp (remote): `curl -i https://mcp.example.com/mcp` — a `401` with a
+     `WWW-Authenticate` header (RFC 9728) proves the server is live and
+     speaks OAuth 2.1.
    Put the verification commands and their output in the PR description.
 4. **Add one entry to `index.json`** (id, name, company, description,
    version, capabilities).
@@ -55,7 +59,9 @@ The app fetches `raw.githubusercontent.com/iaa2005/monet-connectors/main/…`.
 | IMAP/SMTP mail (TLS only) | plaintext ports (`secure` must be `true`) |
 | WebDAV files, CalDAV calendar, CardDAV contacts (https only) | http endpoints, URLs with embedded credentials |
 | a local MCP server via `npx` / `uvx` | any other command — no `bash`, no binaries, no scripts |
-| `password` / `token` auth forms | OAuth or phone-code sign-in flows (those need app code — contribute to the app instead) |
+| a remote MCP server via `url` (https only) with OAuth 2.1 | non-https MCP URLs |
+| `password` / `token` auth forms | OAuth flows other than remote MCP (Google, Telegram — those need app code) |
+| `oauth-mcp` auth (remote MCP: browser sign-in, DCR, PKCE) | manual client-id/secret entry for OAuth |
 
 ## Security model (why these rules exist)
 
@@ -64,9 +70,14 @@ The app fetches `raw.githubusercontent.com/iaa2005/monet-connectors/main/…`.
   https/TLS-only, no credential-bearing URLs, and the app shows the user
   every endpoint before install — but the review here is the real gate.
   **Reviewers: check the hosts belong to the named provider.**
-- An MCP entry IS code execution (a package runs on the user's machine).
+- A local MCP entry IS code execution (a package runs on the user's machine).
   That's why `command` is allowlisted to package runners and reviewers must
   confirm the package is the provider's official server.
+- A remote MCP entry (`oauth-mcp`) does NOT execute code from this repo —
+  the server runs on the provider's infrastructure. The risk is the same as
+  any OAuth flow: the user trusts the server with their data. The app's MCP
+  SDK handles discovery (RFC 9728), dynamic client registration (RFC 7591),
+  and PKCE — no pre-registration, no shared secrets.
 - `version` bumps ship updates; keep them semver-ish and describe changes in
   the PR.
 
@@ -81,6 +92,9 @@ notes beyond the schema:
   its own header). `""` for none.
 - `auth.fields[].key` — `"username"` goes to the account's login; any other
   key lands in the encrypted secret store.
+- `auth.kind: "oauth-mcp"` — for remote MCP servers only. No fields: the
+  app runs the OAuth 2.1 flow (browser → DCR → PKCE → tokens). The `url`
+  in `capabilities.mcp` must be `https://`.
 - `capabilities.mail.authHint` — appended to authentication failures; write
   the sentence that actually unblocks the user.
 - `promptHint` — one sentence of guidance injected into the agent's tool
