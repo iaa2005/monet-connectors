@@ -1,0 +1,18 @@
+[
+  {
+    "id": "mailru",
+    "name": "MailruMail",
+    "company": "Mail.ru",
+    "description": "Read, search and send Mail.ru email over IMAP/SMTP.",
+    "version": "1.0.0",
+    "capabilities": ["mail"]
+  },
+  {
+    "id": "fastmail",
+    "name": "FastmailMail",
+    "company": "Fastmail",
+    "description": "Read, search and send Fastmail email over IMAP/SMTP.",
+    "version": "1.0.0",
+    "capabilities": ["mail"]
+  }
+]

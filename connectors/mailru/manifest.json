@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "mailru",
+  "name": "MailruMail",
+  "company": "Mail.ru",
+  "description": "Read, search and send Mail.ru email over IMAP/SMTP.",
+  "version": "1.0.0",
+  "auth": {
+    "kind": "password",
+    "fields": [
+      { "key": "username", "label": "Login", "placeholder": "you@mail.ru" },
+      {
+        "key": "password",
+        "label": "App password (“Пароль для внешнего приложения”)",
+        "secret": true
+      }
+    ]
+  },
+  "credUrl": "https://id.mail.ru/security",
+  "credLabel": "Create app password",
+  "note": "Mail.ru requires an app password for IMAP — the account password is refused. Create one under Security → “Пароли для внешних приложений” and enable IMAP in mail settings if it's off.",
+  "setupSteps": [
+    {
+      "text": "Open Mail.ru ID → Security → “Пароли для внешних приложений” and create a password for mail.",
+      "url": "https://id.mail.ru/security",
+      "urlLabel": "Mail.ru security"
+    },
+    { "text": "Use your full address as the login." }
+  ],
+  "capabilities": {
+    "mail": {
+      "imap": { "host": "imap.mail.ru", "port": 993, "secure": true },
+      "smtp": { "host": "smtp.mail.ru", "port": 465, "secure": true },
+      "authHint": "check the login is the FULL address, the password is an app password (not the account one), and that IMAP is enabled in Mail.ru settings."
+    }
+  }
+}
