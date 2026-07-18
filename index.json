@@ -14,5 +14,13 @@
     "description": "Read, search and send Fastmail email over IMAP/SMTP.",
     "version": "1.0.0",
     "capabilities": ["mail"]
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "company": "Dropbox",
+    "description": "Browse, search, upload and share Dropbox files via the remote MCP server (OAuth 2.1).",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
   }
 ]
