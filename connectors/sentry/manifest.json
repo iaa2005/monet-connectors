@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "id": "sentry",
+  "name": "Sentry",
+  "company": "Sentry",
+  "description": "Errors and issue details via Sentry's remote MCP server (OAuth 2.1).",
+  "version": "1.0.0",
+  "auth": { "kind": "oauth-mcp" },
+  "credUrl": "https://docs.sentry.io/product/sentry-mcp/",
+  "credLabel": "Sentry MCP docs",
+  "capabilities": {
+    "mcp": {
+      "url": "https://mcp.sentry.dev/mcp",
+      "transport": "http"
+    }
+  }
+}

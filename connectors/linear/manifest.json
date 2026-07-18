@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "id": "linear",
+  "name": "Linear",
+  "company": "Linear",
+  "description": "Issues, projects, triage via Linear's remote MCP server (OAuth 2.1).",
+  "version": "1.0.0",
+  "auth": { "kind": "oauth-mcp" },
+  "credUrl": "https://linear.app/docs/mcp",
+  "credLabel": "Linear MCP docs",
+  "capabilities": {
+    "mcp": {
+      "url": "https://mcp.linear.app/mcp",
+      "transport": "http"
+    }
+  }
+}

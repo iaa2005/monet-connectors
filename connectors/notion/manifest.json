@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "notion",
+  "name": "Notion",
+  "company": "Notion",
+  "description": "Pages and databases via Notion's MCP server.",
+  "version": "1.0.0",
+  "auth": {
+    "kind": "token",
+    "field": {
+      "key": "password",
+      "label": "Internal integration token (ntn_…)",
+      "secret": true,
+      "mono": true
+    }
+  },
+  "credUrl": "https://app.notion.com/developers/tokens",
+  "credLabel": "Get token",
+  "note": "After connecting, open each page or database in Notion → ••• → Connections → add your integration. Without that it authenticates fine but sees nothing — search returns empty, and pages can't be created at the workspace root at all.",
+  "capabilities": {
+    "mcp": {
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "envKey": "NOTION_TOKEN"
+    }
+  }
+}

@@ -22,5 +22,37 @@
     "description": "Browse, search, upload and share Dropbox files via the remote MCP server (OAuth 2.1).",
     "version": "1.0.0",
     "capabilities": ["mcp"]
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "company": "Notion",
+    "description": "Pages and databases via Notion's MCP server.",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "company": "Slack",
+    "description": "Post and read channel messages via Slack's MCP server.",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "company": "Linear",
+    "description": "Issues, projects, triage via Linear's remote MCP server (OAuth 2.1).",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "company": "Sentry",
+    "description": "Errors and issue details via Sentry's remote MCP server (OAuth 2.1).",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
   }
 ]

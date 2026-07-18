@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "slack",
+  "name": "Slack",
+  "company": "Slack",
+  "description": "Post and read channel messages via Slack's MCP server.",
+  "version": "1.0.0",
+  "auth": {
+    "kind": "token",
+    "field": {
+      "key": "password",
+      "label": "Bot token (xoxb-…)",
+      "secret": true,
+      "mono": true
+    }
+  },
+  "credUrl": "https://api.slack.com/apps",
+  "credLabel": "Create app",
+  "note": "Create an app → OAuth & Permissions → add bot scopes → install to workspace, then copy the Bot User OAuth Token.",
+  "capabilities": {
+    "mcp": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "envKey": "SLACK_BOT_TOKEN"
+    }
+  }
+}
