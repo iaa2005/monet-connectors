@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "dropbox",
   "name": "Dropbox",
+  "displayName": "Dropbox",
   "company": "Dropbox",
   "description": "Browse, search, upload and share Dropbox files via the remote MCP server (OAuth 2.1).",
   "version": "1.0.0",
@@ -10,15 +11,15 @@
   },
   "credUrl": "https://www.dropbox.com",
   "credLabel": "Open Dropbox",
-  "note": "Sign in with your Dropbox account in the browser — no app keys to paste. The server uses OAuth 2.1 with Dynamic Client Registration (RFC 7591). Your access token is encrypted and refreshed automatically. Provides 20 tools: file browsing, search, upload, download, copy, move, delete, shared links, file requests, revision history, and more.",
+  "note": "Sign in with your Dropbox account in the browser \u2014 no app keys to paste. The server uses OAuth 2.1 with Dynamic Client Registration (RFC 7591). Your access token is encrypted and refreshed automatically. Provides 20 tools: file browsing, search, upload, download, copy, move, delete, shared links, file requests, revision history, and more.",
   "setupSteps": [
     {
-      "text": "Click Sign in — your browser opens the Dropbox consent screen.",
+      "text": "Click Sign in \u2014 your browser opens the Dropbox consent screen.",
       "url": "https://www.dropbox.com",
       "urlLabel": "Dropbox"
     },
     {
-      "text": "Approve the request. The token is stored encrypted — you won't need to sign in again unless you disconnect."
+      "text": "Approve the request. The token is stored encrypted \u2014 you won't need to sign in again unless you disconnect."
     }
   ],
   "capabilities": {

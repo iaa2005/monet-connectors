@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "sentry",
   "name": "Sentry",
+  "displayName": "Sentry",
   "company": "Sentry",
   "description": "Errors and issue details via Sentry's remote MCP server (OAuth 2.1).",
   "version": "1.0.0",

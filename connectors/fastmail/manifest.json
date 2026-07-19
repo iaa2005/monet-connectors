@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "fastmail",
   "name": "FastmailMail",
+  "displayName": "Fastmail Mail",
   "company": "Fastmail",
   "description": "Read, search and send Fastmail email over IMAP/SMTP.",
   "version": "1.0.0",
@@ -14,10 +15,10 @@
   },
   "credUrl": "https://app.fastmail.com/settings/security/devicekeys",
   "credLabel": "Create app password",
-  "note": "Fastmail refuses the account password for IMAP — create an app password with Mail access under Settings → Privacy & Security → Integrations.",
+  "note": "Fastmail refuses the account password for IMAP \u2014 create an app password with Mail access under Settings \u2192 Privacy & Security \u2192 Integrations.",
   "setupSteps": [
     {
-      "text": "Create an app password with “Mail (IMAP/SMTP)” access.",
+      "text": "Create an app password with \u201cMail (IMAP/SMTP)\u201d access.",
       "url": "https://app.fastmail.com/settings/security/devicekeys",
       "urlLabel": "Fastmail app passwords"
     }
@@ -26,7 +27,7 @@
     "mail": {
       "imap": { "host": "imap.fastmail.com", "port": 993, "secure": true },
       "smtp": { "host": "smtp.fastmail.com", "port": 465, "secure": true },
-      "authHint": "check the password is an APP password with Mail access — Fastmail refuses the account password over IMAP."
+      "authHint": "check the password is an APP password with Mail access \u2014 Fastmail refuses the account password over IMAP."
     }
   }
 }

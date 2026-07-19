@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "mailru",
   "name": "MailruMail",
+  "displayName": "Mail.ru Mail",
   "company": "Mail.ru",
   "description": "Read, search and send Mail.ru email over IMAP/SMTP.",
   "version": "1.0.0",
@@ -11,17 +12,17 @@
       { "key": "username", "label": "Login", "placeholder": "you@mail.ru" },
       {
         "key": "password",
-        "label": "App password (“Пароль для внешнего приложения”)",
+        "label": "App password (\u201c\u041f\u0430\u0440\u043e\u043b\u044c \u0434\u043b\u044f \u0432\u043d\u0435\u0448\u043d\u0435\u0433\u043e \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f\u201d)",
         "secret": true
       }
     ]
   },
   "credUrl": "https://id.mail.ru/security",
   "credLabel": "Create app password",
-  "note": "Mail.ru requires an app password for IMAP — the account password is refused. Create one under Security → “Пароли для внешних приложений” and enable IMAP in mail settings if it's off.",
+  "note": "Mail.ru requires an app password for IMAP \u2014 the account password is refused. Create one under Security \u2192 \u201c\u041f\u0430\u0440\u043e\u043b\u0438 \u0434\u043b\u044f \u0432\u043d\u0435\u0448\u043d\u0438\u0445 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0439\u201d and enable IMAP in mail settings if it's off.",
   "setupSteps": [
     {
-      "text": "Open Mail.ru ID → Security → “Пароли для внешних приложений” and create a password for mail.",
+      "text": "Open Mail.ru ID \u2192 Security \u2192 \u201c\u041f\u0430\u0440\u043e\u043b\u0438 \u0434\u043b\u044f \u0432\u043d\u0435\u0448\u043d\u0438\u0445 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0439\u201d and create a password for mail.",
       "url": "https://id.mail.ru/security",
       "urlLabel": "Mail.ru security"
     },
