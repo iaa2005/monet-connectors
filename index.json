@@ -2,6 +2,7 @@
   {
     "id": "mailru",
     "name": "MailruMail",
+    "displayName": "Mail.ru Mail",
     "company": "Mail.ru",
     "description": "Read, search and send Mail.ru email over IMAP/SMTP.",
     "version": "1.0.0",
@@ -10,6 +11,7 @@
   {
     "id": "fastmail",
     "name": "FastmailMail",
+    "displayName": "Fastmail Mail",
     "company": "Fastmail",
     "description": "Read, search and send Fastmail email over IMAP/SMTP.",
     "version": "1.0.0",
@@ -18,6 +20,7 @@
   {
     "id": "dropbox",
     "name": "Dropbox",
+    "displayName": "Dropbox",
     "company": "Dropbox",
     "description": "Browse, search, upload and share Dropbox files via the remote MCP server (OAuth 2.1).",
     "version": "1.0.0",
@@ -26,6 +29,7 @@
   {
     "id": "notion",
     "name": "Notion",
+    "displayName": "Notion",
     "company": "Notion",
     "description": "Pages and databases via Notion's MCP server.",
     "version": "1.0.0",
@@ -34,6 +38,7 @@
   {
     "id": "slack",
     "name": "Slack",
+    "displayName": "Slack",
     "company": "Slack",
     "description": "Post and read channel messages via Slack's MCP server.",
     "version": "1.0.0",
@@ -42,6 +47,7 @@
   {
     "id": "linear",
     "name": "Linear",
+    "displayName": "Linear",
     "company": "Linear",
     "description": "Issues, projects, triage via Linear's remote MCP server (OAuth 2.1).",
     "version": "1.0.0",
@@ -50,6 +56,7 @@
   {
     "id": "sentry",
     "name": "Sentry",
+    "displayName": "Sentry",
     "company": "Sentry",
     "description": "Errors and issue details via Sentry's remote MCP server (OAuth 2.1).",
     "version": "1.0.0",
