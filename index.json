@@ -61,5 +61,14 @@
     "description": "Errors and issue details via Sentry's remote MCP server (OAuth 2.1).",
     "version": "1.0.0",
     "capabilities": ["mcp"]
+  },
+  {
+    "id": "alphaxiv",
+    "name": "alphaXiv",
+    "displayName": "alphaXiv",
+    "company": "alphaXiv",
+    "description": "Search and read arXiv papers, analyze PDFs, explore codebases, and manage your research library via the alphaXiv MCP server (OAuth 2.0).",
+    "version": "1.0.0",
+    "capabilities": ["mcp"]
   }
 ]

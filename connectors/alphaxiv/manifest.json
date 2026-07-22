@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "alphaxiv",
+  "name": "alphaXiv",
+  "company": "alphaXiv",
+  "description": "Search and read arXiv papers, analyze PDFs, explore paper codebases, and manage your research library via the alphaXiv MCP server (OAuth 2.0).",
+  "version": "1.0.0",
+  "auth": { "kind": "oauth-mcp" },
+  "credUrl": "https://www.alphaxiv.org/docs/mcp",
+  "credLabel": "alphaXiv MCP docs",
+  "note": "Provides 11 tools: discover_papers, get_paper_content, answer_pdf_queries, read_files_from_github_repository, and library management (list/save/remove/move papers, create/rename/delete folders). Sign in with your alphaXiv account — no API keys needed.",
+  "setupSteps": [
+    {
+      "text": "Click Sign in — your browser opens the alphaXiv consent screen.",
+      "url": "https://www.alphaxiv.org",
+      "urlLabel": "alphaXiv"
+    },
+    {
+      "text": "Approve the request. The token is stored encrypted — you won't need to sign in again unless you disconnect."
+    }
+  ],
+  "capabilities": {
+    "mcp": {
+      "url": "https://api.alphaxiv.org/mcp/v1",
+      "transport": "http"
+    }
+  }
+}
